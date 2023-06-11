@@ -19,8 +19,8 @@ const DashboardForTeacher =() =>{
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">INS-ID</th>
-                    <th scope="col">Teacher's Name</th>
+                    <th scope="col">CMS-ID</th>
+                    <th scope="col">Student's Name</th>
                     <th scope="col">Time</th>
                     <th scope="col">Venue</th>
                     <th scope="col">Date</th>
@@ -34,8 +34,8 @@ const DashboardForTeacher =() =>{
                 <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>INS-1204</td>
-                    <td>Dr. Saif Hassan</td>
+                    <td>021-21-0000</td>
+                    <td>Yaseen</td>
                     <td>12:45 pm</td>
                     <td>AB-1,R-09</td>
                     <td>22th June,2023</td>
@@ -53,7 +53,7 @@ const DashboardForTeacher =() =>{
             </table>
 
             <div>
-                <button className="btn btn-success btn-sm"><Link to="/view-history" >View history </Link></button>
+                <button className="btn btn-success btn-sm text-white"><Link to="/view-history"  className="text-white">View history </Link></button>
             </div>
 
             <Routes>

@@ -7,7 +7,7 @@ const NewRequestForAppointments =()=>{
 
 
             <div>
-                <h3 className='d-flex justify-content-center py-3 px-3 underline'><u>Here Is Your All Scheduled Meetings!</u></h3>
+                <h3 className='d-flex justify-content-center py-3 px-3 underline'><u>Meeting Requests Received from Students</u></h3>
             </div>
 
 
