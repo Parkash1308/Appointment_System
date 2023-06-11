@@ -17,6 +17,7 @@ import Registration from "./components/Registration";
 import Teacher from "./components/Teacher";
 import SidebarForTeacher from "./components/SidebarForTeacher";
 import NewRequestForAppointments from "./components/NewRequestForAppointments";
+import DashboardForTeacher from "./components/DashboardForTeacher";
 
 function App() {
   return (
@@ -48,14 +49,15 @@ function App() {
                        {/*<Route path='/appointments' element = { <Appointments /> } />*/}
                        {/*<Route path='/change-appoints' element = { <ChangeAppointments /> } />*/}
                        {/*<Route path='/all-meetings' element = { <Meetings /> } />*/}
-                       <Route path='/dashboard' element = { <Dashboard /> } />
+                       <Route path='/dashboard' element = { <DashboardForTeacher /> } />
                        {/*<Route path='/cancel-appoints' element = { <CancelAppointments /> } />*/}
                        {/*<Route path='/log-out' element = { <LogOut /> } />*/}
                        {/*<Route path='/all-files' element = { <App /> } />}*/}
                        <Route path='/view-history' element={ <History/>} />
                        {/*<Route path='/App' element={ <App /> } />*/}
                        {/*<Route path='/registration' element={ <Registration /> } />*/}
-                       {/*<Route path='/Login' element={ <LogIn /> } />*/}
+                       <Route path='/new-request' element={ <NewRequestForAppointments /> } />
+
 
 
 

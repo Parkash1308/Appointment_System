@@ -1,8 +1,12 @@
 import React from "react";
+import { Routes, Route, Link} from 'react-router-dom';
+import History from "./History";
 
-const NewRequestForAppointments =()=>{
+const DashboardForTeacher =() =>{
+
 
     return(
+
         <>
 
 
@@ -15,13 +19,14 @@ const NewRequestForAppointments =()=>{
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">CMS-ID</th>
-                    <th scope="col">Student Name</th>
-
-
+                    <th scope="col">INS-ID</th>
+                    <th scope="col">Teacher's Name</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Venue</th>
                     <th scope="col">Date</th>
-                    <th scope="col">Write time</th>
                     <th scope="col">Action</th>
+
+
 
 
                 </tr>
@@ -29,18 +34,11 @@ const NewRequestForAppointments =()=>{
                 <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>021-00-0000</td>
-                    <td>Yaseen</td>
-
-
+                    <td>INS-1204</td>
+                    <td>Dr. Saif Hassan</td>
+                    <td>12:45 pm</td>
+                    <td>AB-1,R-09</td>
                     <td>22th June,2023</td>
-                    <td>
-                        <div>
-                            <input type="email" className="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp" />
-
-                        </div>
-                    </td>
                     <td>
                         <span>
                             <button className="btn btn-danger btn-sm me-2">Delete</button>
@@ -54,11 +52,24 @@ const NewRequestForAppointments =()=>{
                 </tbody>
             </table>
 
+            <div>
+                <button className="btn btn-success btn-sm"><Link to="/view-history" >View history </Link></button>
+            </div>
+
+            <Routes>
+                <Route path='/view-history' element = { <History/> } />
+
+            </Routes>
+
+
+
+
+
 
         </>
+
     );
-
-
 }
 
-export default NewRequestForAppointments;
+export default DashboardForTeacher;
+
