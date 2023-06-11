@@ -162,6 +162,52 @@ const  Registration = () =>{
 
                                             </div>
                                         </div>
+
+
+                                        <br />
+
+                                        <div className="row">
+                                            <div className="col-md-6 mb-4">
+                                                <div className="form-outline">
+
+                                                    <label className="form-label" htmlFor="firstName">
+                                                        Password
+                                                    </label>
+
+                                                    <input
+                                                        type="password"
+                                                        id="firstName"
+                                                        className="form-control form-control-lg"
+                                                    />
+
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6 mb-4">
+                                                <div className="form-outline">
+
+                                                    <label className="form-label" htmlFor="lastName">
+                                                        Confirm Password
+                                                    </label>
+                                                    <input
+                                                        type="password"
+                                                        id="lastName"
+                                                        className="form-control form-control-lg"
+                                                    />
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+
+
+
                                         <div className="mt-4 pt-2">
                                             <input
                                                 className="btn btn-primary btn-lg"

@@ -19,41 +19,44 @@ function App() {
   return (
    <>
 
+       <Navbar/>
        {/*<LogIn/>*/}
 
-        <Registration />
-
-
-       {/*<Navbar/>*/}
-
-
-       {/*<div className='container-fluid bg-secondary min-vh-100 px-0'>*/}
-
-       {/*       <div className='row'>*/}
-
-       {/*        <div className='col-2 bg-white vh-100'>*/}
-
-       {/*                <Sidebar />*/}
-
-       {/*        </div>*/}
-       {/*        <div className='col bg-white vh-100'>*/}
-       {/*            <Routes>*/}
-       {/*                <Route path='/appointments' element = { <Appointments /> } />*/}
-       {/*                <Route path='/change-appoints' element = { <ChangeAppointments /> } />*/}
-       {/*                /!*<Route path='/all-meetings' element = { <Meetings /> } />*!/*/}
-       {/*                <Route path='/dashboard' element = { <Dashboard /> } />*/}
-       {/*                /!*<Route path='/cancel-appoints' element = { <CancelAppointments /> } />*!/*/}
-       {/*                /!*<Route path='/log-out' element = { <LogOut /> } />*!/*/}
-       {/*                /!*<Route path='/all-files' element = { <App /> } />}*!/*/}
-       {/*                <Route path='/view-history' element={ <History/>} />*/}
-       {/*                /!*<Route path='/App' element={ <App /> } />*!/*/}
+        {/*<Registration />*/}
 
 
 
-       {/*            </Routes>*/}
-       {/*        </div>*/}
-       {/*    </div>*/}
-       {/*</div>*/}
+
+
+       <div className='container-fluid bg-secondary min-vh-100 px-0'>
+
+              <div className='row'>
+
+               <div className='col-2 bg-white vh-100'>
+
+                       <Sidebar />
+
+               </div>
+               <div className='col bg-white vh-100'>
+                   <Routes>
+                       <Route path='/appointments' element = { <Appointments /> } />
+                       <Route path='/change-appoints' element = { <ChangeAppointments /> } />
+                       {/*<Route path='/all-meetings' element = { <Meetings /> } />*/}
+                       <Route path='/dashboard' element = { <Dashboard /> } />
+                       {/*<Route path='/cancel-appoints' element = { <CancelAppointments /> } />*/}
+                       {/*<Route path='/log-out' element = { <LogOut /> } />*/}
+                       {/*<Route path='/all-files' element = { <App /> } />}*/}
+                       <Route path='/view-history' element={ <History/>} />
+                       {/*<Route path='/App' element={ <App /> } />*/}
+                       <Route path='/registration' element={ <Registration /> } />
+                       <Route path='/Login' element={ <LogIn /> } />
+
+
+
+                   </Routes>
+               </div>
+           </div>
+       </div>
 
 
 
