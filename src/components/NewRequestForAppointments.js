@@ -44,7 +44,7 @@ const NewRequestForAppointments =()=>{
                     <td>
                         <span>
                             <button className="btn btn-danger btn-sm me-2">Delete</button>
-                            <button className="btn btn-primary btn-sm">Edit</button>
+                            <button className="btn btn-success btn-sm">Accept</button>
                         </span>
 
                     </td>
