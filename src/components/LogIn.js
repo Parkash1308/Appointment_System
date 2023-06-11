@@ -2,6 +2,13 @@ import React from 'react';
 import '../App.css';
 import {useHistory} from "use-history";
 import { Routes, Route, Link} from 'react-router-dom';
+import Sidebar from "./Sidebar";
+import Appointments from "./Appointments";
+import ChangeAppointments from "./ChangeAppointments";
+import Dashboard from "./Dashboard";
+import LogOut from "./LogOut";
+import History from "./History";
+import App from "../App";
 
 
 // import { useHistory } from "react-router-dom";
@@ -23,10 +30,7 @@ function LogIn(){
 
 
 
-
     return(
-
-
 
         <>
 
@@ -94,7 +98,7 @@ function LogIn(){
                                         style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
                                         // onClick={coursesPage}
                                     >
-                                        <Link to="/view-history" >Login </Link>
+                                        <Link to="/Sidebar" >Login </Link>
                                     </button>
                                     <p className="small fw-bold mt-2 pt-1 mb-0">
                                         Don't have an account?{" "}
@@ -115,6 +119,42 @@ function LogIn(){
 
                 </div>
             </section>
+
+
+            <div className='container-fluid bg-secondary min-vh-100 px-0'>
+
+                <div className='row'>
+
+                    <div className='col-2 bg-white vh-100'>
+                        {/*<Sidebar />*/}
+                    </div>
+                    <div className='col bg-white vh-100'>
+                        <Routes>
+
+
+                            {/*<Route path='/change-appoints' element = { <ChangeAppointments /> } />*/}
+                            {/*/!*<Route path='/all-meetings' element = { <Meetings /> } />*!/*/}
+                            {/*<Route path='/dashboard' element = { <Dashboard /> } />*/}
+                            {/*/!*<Route path='/cancel-appoints' element = { <CancelAppointments /> } />*!/*/}
+                            {/*<Route path='/log-out' element = { <LogOut /> } />*/}
+                            {/*<Route path='/all-files' element = { <App /> } />}*/}
+                            {/*<Route path='/view-history' element={ <History/>} />*/}
+                            {/*<Route path='/login' element={ <App /> } />*/}
+
+
+                        </Routes>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
 
 
 

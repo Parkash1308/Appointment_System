@@ -17,14 +17,18 @@ import History from "./components/History";
 function App() {
   return (
    <>
+
+       <Navbar/>
+       {/*<LogIn />*/}
+
        <div className='container-fluid bg-secondary min-vh-100 px-0'>
-           <Navbar/>
 
-           <div className='row'>
-
+              <div className='row'>
 
                <div className='col-2 bg-white vh-100'>
-                   <Sidebar />
+
+                       <Sidebar />
+
                </div>
                <div className='col bg-white vh-100'>
                    <Routes>
@@ -36,6 +40,9 @@ function App() {
                        <Route path='/log-out' element = { <LogOut /> } />
                        <Route path='/all-files' element = { <App /> } />}
                        <Route path='/view-history' element={ <History/>} />
+                       <Route path='/login' element={ <App /> } />
+
+
 
                    </Routes>
                </div>
@@ -43,9 +50,6 @@ function App() {
        </div>
 
 
-
-
-       {/*<LogIn />*/}
 
        {/*<History />*/}
 
