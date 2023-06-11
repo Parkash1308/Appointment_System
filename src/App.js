@@ -29,10 +29,11 @@ function App() {
                    <Routes>
                        <Route path='/appointments' element = { <Appointments /> } />
                        <Route path='/change-appoints' element = { <ChangeAppointments /> } />
-                       <Route path='/all-meetings' element = { <Meetings /> } />
-                       {/*<Route path='/dashboard' element = { <Dashboard /> } />*/}
+                       {/*<Route path='/all-meetings' element = { <Meetings /> } />*/}
+                       <Route path='/dashboard' element = { <Dashboard /> } />
                        {/*<Route path='/cancel-appoints' element = { <CancelAppointments /> } />*/}
                        <Route path='/log-out' element = { <LogOut /> } />
+                       <Route path='/all-files' element = { <App /> } />}
 
                    </Routes>
                </div>
@@ -46,6 +47,7 @@ function App() {
 
 
        {/*<LogIn />*/}
+
 
 
 

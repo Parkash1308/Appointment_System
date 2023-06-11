@@ -1,12 +1,33 @@
 import React from 'react';
 import '../App.css';
+import {useHistory} from "use-history";
+
+// import { useHistory } from "react-router-dom";
 
 
-const LogIn =() =>{
 
-    return (
+
+
+function LogIn(){
+
+
+    // const history = useHistory();
+    //
+    // const coursesPage = () => {
+    //
+    //     history.push("/App")
+    //
+    // }
+
+
+
+
+    return(
+
+
 
         <>
+
             <section className="vh-100">
                 <div className="container-fluid h-custom">
                     <div className="row d-flex justify-content-center align-items-center h-100">
@@ -69,6 +90,7 @@ const LogIn =() =>{
                                         type="button"
                                         className="btn btn-primary btn-sm"
                                         style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
+                                        // onClick={coursesPage}
                                     >
                                         Login
                                     </button>
@@ -88,19 +110,23 @@ const LogIn =() =>{
                     <div className="text-white mb-3 mb-md-0">
                         Copyright © 2023. All rights reserved.
                     </div>
-                    {/* Copyright */}
-                    {/* Right */}
 
-                    {/* Right */}
                 </div>
             </section>
 
 
+
         </>
 
+
     );
+
+
 }
 
+
 export default LogIn
+
+
 
 
