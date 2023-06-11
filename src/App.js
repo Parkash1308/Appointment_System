@@ -12,6 +12,7 @@ import CancelAppointments from "./components/CancelAppointments";
 import LogOut from "./components/LogOut";
 import React from "react";
 import LogIn from "./components/LogIn";
+import History from "./components/History";
 
 function App() {
   return (
@@ -47,6 +48,8 @@ function App() {
 
 
        {/*<LogIn />*/}
+
+       <History />
 
 
 

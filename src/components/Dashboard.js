@@ -1,4 +1,6 @@
 import React from "react";
+import {Link, Route, Routes} from "react-router-dom";
+import History from "./History";
 
 const Dashboard =() =>{
 
@@ -48,8 +50,17 @@ const Dashboard =() =>{
             </table>
 
             <div>
-                <button className="btn btn-success btn-sm">View history</button>
+                <button className="btn btn-success btn-sm"><Link to="/view-history" >View history </Link></button>
             </div>
+
+                        <Routes>
+                            <Route path='/appointments' element = { <History/> } />
+
+                        </Routes>
+
+
+
+
 
 
         </>
