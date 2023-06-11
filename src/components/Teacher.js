@@ -1,12 +1,11 @@
 import React from "react";
-import { Routes, Route, Link} from 'react-router-dom';
-import History from "./History";
+import {Link} from "react-router-dom";
 
-const Dashboard =() =>{
+
+const Teacher =()=>{
 
 
     return(
-
         <>
 
 
@@ -49,14 +48,7 @@ const Dashboard =() =>{
                 </tbody>
             </table>
 
-            <div>
-                <button className="btn btn-success btn-sm"><Link to="/view-history" >View history </Link></button>
-            </div>
-
-                        <Routes>
-                            <Route path='/view-history' element = { <History/> } />
-
-                        </Routes>
+            
 
 
 
@@ -64,9 +56,8 @@ const Dashboard =() =>{
 
 
         </>
-
     );
+
 }
 
-export default Dashboard;
-
+export default Teacher
