@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, Route, Routes} from "react-router-dom";
+import { Routes, Route, Link} from 'react-router-dom';
 import History from "./History";
 
 const Dashboard =() =>{
@@ -54,7 +54,7 @@ const Dashboard =() =>{
             </div>
 
                         <Routes>
-                            <Route path='/appointments' element = { <History/> } />
+                            <Route path='/view-history' element = { <History/> } />
 
                         </Routes>
 

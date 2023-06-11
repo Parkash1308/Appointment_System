@@ -35,21 +35,19 @@ function App() {
                        {/*<Route path='/cancel-appoints' element = { <CancelAppointments /> } />*/}
                        <Route path='/log-out' element = { <LogOut /> } />
                        <Route path='/all-files' element = { <App /> } />}
+                       <Route path='/view-history' element={ <History/>} />
 
                    </Routes>
                </div>
-
            </div>
-
-
-
        </div>
+
 
 
 
        {/*<LogIn />*/}
 
-       <History />
+       {/*<History />*/}
 
 
 
