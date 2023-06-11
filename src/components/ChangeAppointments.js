@@ -11,7 +11,7 @@ const ChangeAppointments = () => {
             <h1 className="d-flex justify-content-center "><u>Change Appointment</u></h1>
 
             <div className="form-group col-md-4 py-1">
-                <label htmlFor="inputState">Select Teacher</label>
+                <label htmlFor="inputState">Teacher</label>
                 <select id="inputState" className="form-control">
                     <option selected="">Select Teacher</option>
                     <option>Dr. Farzeel Anwar</option>

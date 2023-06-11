@@ -48,16 +48,16 @@ const Sidebar =() => {
                         <span className='fs-9'><Link to="/change-appoints" >Change Appoint </Link> </span>
                     </a>
 
-                    <a className='list-group-item py-2'>
-                        <img src={meeting} alt="A log of Appointments" className='me-3 fs-7' />
+                    {/*<a className='list-group-item py-2'>*/}
+                    {/*    <img src={meeting} alt="A log of Appointments" className='me-3 fs-7' />*/}
 
-                        <span className='fs-7' ><Link to="/all-meetings" >Meetings </Link></span>
-                    </a>
+                    {/*    <span className='fs-7' ><Link to="/all-meetings" >Meetings </Link></span>*/}
+                    {/*</a>*/}
 
-                    <a className='list-group-item py-2'>
-                        <img src={cancel2} alt="A log of Appointments" className='me-3 fs-7' />
-                        <span className='fs-9'><Link to="/cancel-appoints" >Cancel Appoint </Link></span>
-                    </a>
+                    {/*<a className='list-group-item py-2'>*/}
+                    {/*    <img src={cancel2} alt="A log of Appointments" className='me-3 fs-7' />*/}
+                    {/*    <span className='fs-9'><Link to="/cancel-appoints" >Cancel Appoint </Link></span>*/}
+                    {/*</a>*/}
 
                     <a className='list-group-item py-2'>
                         <i className='bi bi-power fs-7 me-3'></i>

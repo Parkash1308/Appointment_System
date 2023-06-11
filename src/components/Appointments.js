@@ -10,49 +10,49 @@ const Appointments = () => {
         <>
             <form>
                 <div className="form-row">
-                    <div className="form-group col-md-6">
-                        <label htmlFor="inputEmail4">Full Name</label>
-                        <input
-                            type="email"
-                            className="form-control"
-                            id="inputEmail4"
-                            placeholder="Write your full name here"
-                        />
-                    </div>
+                    {/*<div className="form-group col-md-6">*/}
+                    {/*    <label htmlFor="inputEmail4">Full Name</label>*/}
+                    {/*    <input*/}
+                    {/*        type="email"*/}
+                    {/*        className="form-control"*/}
+                    {/*        id="inputEmail4"*/}
+                    {/*        placeholder="Write your full name here"*/}
+                    {/*    />*/}
+                    {/*</div>*/}
 
-                    <div className="form-group col-md-6">
-                        <label htmlFor="inputEmail4">Email</label>
-                        <input
-                            type="email"
-                            className="form-control"
-                            id="inputEmail4"
-                            placeholder="Write your Email here"
-                        />
-                    </div>
+                    {/*<div className="form-group col-md-6">*/}
+                    {/*    <label htmlFor="inputEmail4">Email</label>*/}
+                    {/*    <input*/}
+                    {/*        type="email"*/}
+                    {/*        className="form-control"*/}
+                    {/*        id="inputEmail4"*/}
+                    {/*        placeholder="Write your Email here"*/}
+                    {/*    />*/}
+                    {/*</div>*/}
 
                 </div>
 
                 <div className="form-row">
 
-                    <div className="form-group col-md-4 py-2">
-                        <label htmlFor="inputState">Select Semester</label>
-                        <select id="inputState" className="form-control">
-                            <option selected="">Select Semester</option>
-                            <option>1st</option>
-                            <option>2nd</option>
-                            <option>3rd</option>
-                            <option>4th</option>
-                            <option>5th</option>
-                            <option>6th</option>
-                            <option>7th</option>
-                            <option>8th</option>
+                    {/*<div className="form-group col-md-4 py-2">*/}
+                    {/*    <label htmlFor="inputState">Select Semester</label>*/}
+                    {/*    <select id="inputState" className="form-control">*/}
+                    {/*        <option selected="">Select Semester</option>*/}
+                    {/*        <option>1st</option>*/}
+                    {/*        <option>2nd</option>*/}
+                    {/*        <option>3rd</option>*/}
+                    {/*        <option>4th</option>*/}
+                    {/*        <option>5th</option>*/}
+                    {/*        <option>6th</option>*/}
+                    {/*        <option>7th</option>*/}
+                    {/*        <option>8th</option>*/}
 
-                        </select>
-                    </div>
+                    {/*    </select>*/}
+                    {/*</div>*/}
 
 
                     <div className="form-group col-md-4 py-1">
-                        <label htmlFor="inputState">Select Teacher</label>
+                        <label htmlFor="inputState">Teacher</label>
                         <select id="inputState" className="form-control">
                             <option selected="">Select Teacher</option>
                             <option>Dr. Farzeel Anwar</option>
@@ -65,17 +65,17 @@ const Appointments = () => {
                     </div>
 
 
-                    <div className="form-group col-md-4 py-2">
-                        <label htmlFor="inputState">Is your class teacher?</label>
-                        <select id="inputState" className="form-control">
-                            <option selected="">Yes or No</option>
-                            <option>Yes</option>
-                            <option>No</option>
+                    {/*<div className="form-group col-md-4 py-2">*/}
+                    {/*    <label htmlFor="inputState">Is your class teacher?</label>*/}
+                    {/*    <select id="inputState" className="form-control">*/}
+                    {/*        <option selected="">Yes or No</option>*/}
+                    {/*        <option>Yes</option>*/}
+                    {/*        <option>No</option>*/}
 
 
-                        </select>
+                    {/*    </select>*/}
 
-                    </div>
+                    {/*</div>*/}
 
 
                 </div>

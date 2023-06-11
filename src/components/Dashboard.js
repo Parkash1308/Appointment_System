@@ -47,6 +47,10 @@ const Dashboard =() =>{
                 </tbody>
             </table>
 
+            <div>
+                <button className="btn btn-success btn-sm">View history</button>
+            </div>
+
 
         </>
 
