@@ -24,47 +24,53 @@ function App() {
    <>
 
        <Navbar/>
-       {/*<LogIn/>*/}
+       <LogIn/>
 
-        {/*<Registration />*/}
+        <Routes>
+
+            <Route path='/registration' element={ <Registration />} />
+
+        </Routes>
+
+
 
        {/*<Teacher />*/}
 
 
 
 
-       <div className='container-fluid bg-secondary min-vh-100 px-0'>
+       {/*<div className='container-fluid bg-secondary min-vh-100 px-0'>*/}
 
-              <div className='row'>
+       {/*       <div className='row'>*/}
 
-               <div className='col-2 bg-white vh-100'>
+       {/*        <div className='col-2 bg-white vh-100'>*/}
 
-                   <SidebarForTeacher />
+       {/*            <SidebarForTeacher />*/}
 
-               </div>
-               <div className='col bg-white vh-100'>
-                   <Routes>
+       {/*        </div>*/}
+       {/*        <div className='col bg-white vh-100'>*/}
+       {/*            <Routes>*/}
 
-                       <Route path='/appointments' element = { <NewRequestForAppointments /> } />
-                       {/*<Route path='/appointments' element = { <Appointments /> } />*/}
-                       {/*<Route path='/change-appoints' element = { <ChangeAppointments /> } />*/}
-                       {/*<Route path='/all-meetings' element = { <Meetings /> } />*/}
-                       <Route path='/dashboard' element = { <DashboardForTeacher /> } />
-                       {/*<Route path='/cancel-appoints' element = { <CancelAppointments /> } />*/}
-                       {/*<Route path='/log-out' element = { <LogOut /> } />*/}
-                       {/*<Route path='/all-files' element = { <App /> } />}*/}
-                       <Route path='/view-history' element={ <History/>} />
-                       {/*<Route path='/App' element={ <App /> } />*/}
-                       {/*<Route path='/registration' element={ <Registration /> } />*/}
-                       <Route path='/new-request' element={ <NewRequestForAppointments /> } />
-
-
+       {/*                <Route path='/appointments' element = { <NewRequestForAppointments /> } />*/}
+       {/*                /!*<Route path='/appointments' element = { <Appointments /> } />*!/*/}
+       {/*                /!*<Route path='/change-appoints' element = { <ChangeAppointments /> } />*!/*/}
+       {/*                /!*<Route path='/all-meetings' element = { <Meetings /> } />*!/*/}
+       {/*                <Route path='/dashboard' element = { <DashboardForTeacher /> } />*/}
+       {/*                /!*<Route path='/cancel-appoints' element = { <CancelAppointments /> } />*!/*/}
+       {/*                /!*<Route path='/log-out' element = { <LogOut /> } />*!/*/}
+       {/*                /!*<Route path='/all-files' element = { <App /> } />}*!/*/}
+       {/*                <Route path='/view-history' element={ <History/>} />*/}
+       {/*                /!*<Route path='/App' element={ <App /> } />*!/*/}
+       {/*                /!*<Route path='/registration' element={ <Registration /> } />*!/*/}
+       {/*                <Route path='/new-request' element={ <NewRequestForAppointments /> } />*/}
 
 
-                   </Routes>
-               </div>
-           </div>
-       </div>
+
+
+       {/*            </Routes>*/}
+       {/*        </div>*/}
+       {/*    </div>*/}
+       {/*</div>*/}
 
 
 
