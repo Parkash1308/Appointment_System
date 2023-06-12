@@ -13,6 +13,7 @@ import Meetings from "./Meetings";
 import Dashboard from "./Dashboard";
 // import CancelAppointments from "./CancelAppointments";
 import LogOut from "./LogOut";
+import History from "./History";
 
 
 const Sidebar =() => {
@@ -20,7 +21,9 @@ const Sidebar =() => {
         return (
 
             <>
-            <div className='bg-white sidebar p-2'>
+
+
+                <div className='bg-white sidebar p-2'>
 
                 <div className='m-2'>
                     <FontAwesomeIcon className='me-3' icon={faUser} size="lg" style={{color: "#578be5",}} />

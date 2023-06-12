@@ -98,7 +98,7 @@ function LogIn(){
                                         style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
                                         // onClick={coursesPage}
                                     >
-                                        <Link to="/App"  className="text-white">Login </Link>
+                                        <Link to="/home"  className="text-white">Login </Link>
                                     </button>
                                     <p className="small fw-bold mt-2 pt-1 mb-0">
                                         Don't have an account?{" "}
