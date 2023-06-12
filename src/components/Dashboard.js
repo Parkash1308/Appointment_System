@@ -2,10 +2,6 @@ import React from "react";
 import { Routes, Route, Link} from 'react-router-dom';
 import History from "./History";
 import Sidebar from "./Sidebar";
-import Appointments from "./Appointments";
-import ChangeAppointments from "./ChangeAppointments";
-import Registration from "./Registration";
-import LogIn from "./LogIn";
 
 const Dashboard =() =>{
 

@@ -139,7 +139,7 @@ const  Registration = () =>{
                                         </div>
                                         <div className="row">
                                             <div className="col-12">
-                                                <select className="select form-control-lg">
+                                                <select className="select form-control-lg me-5">
 
                                                     <label className="form-label select-label">
                                                         Choose option
@@ -159,6 +159,24 @@ const  Registration = () =>{
                                                     <option value={9}>Accounting and Finance</option>
 
                                                 </select>
+
+
+                                                <select className="select form-control-lg ">
+
+                                                    <label className="form-label select-label">
+                                                        Choose option
+                                                    </label>
+                                                    <br />
+                                                    <br />
+                                                    <option value={1} disabled="">
+                                                        Choose Role
+                                                    </option>
+                                                    <option value={2}>Student</option>
+                                                    <option value={3}>Teacher</option>
+
+
+                                                </select>
+
 
                                             </div>
                                         </div>
