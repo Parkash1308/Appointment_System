@@ -18,13 +18,15 @@ import Teacher from "./components/Teacher";
 import SidebarForTeacher from "./components/SidebarForTeacher";
 import NewRequestForAppointments from "./components/NewRequestForAppointments";
 import DashboardForTeacher from "./components/DashboardForTeacher";
+import ForgetPassword from "./components/ForgetPassword";
 
 function App() {
   return (
    <>
 
        <Navbar/>
-       <LogIn/>
+       <ForgetPassword />
+       {/*<LogIn/>*/}
 
         <Routes>
 
