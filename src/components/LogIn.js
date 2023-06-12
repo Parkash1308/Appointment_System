@@ -88,7 +88,7 @@ function LogIn(){
                                         </label>
                                     </div>
                                     <a href="#!" className="text-body">
-                                        Forgot password?
+                                        <Link to="/forget-password" className="text-danger">Forget Password </Link>
                                     </a>
                                 </div>
                                 <div className="text-center text-lg-start mt-4 pt-2">
@@ -103,7 +103,7 @@ function LogIn(){
                                     <p className="small fw-bold mt-2 pt-1 mb-0">
                                         Don't have an account?{" "}
                                         <a href="#!" className="link-danger">
-                                            <Link to="/registration" >Register </Link>
+                                            <Link to="/registration" className="text-success" >Register </Link>
                                         </a>
                                     </p>
                                 </div>

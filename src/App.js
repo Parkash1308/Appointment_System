@@ -25,12 +25,15 @@ function App() {
    <>
 
        <Navbar/>
-       <ForgetPassword />
-       {/*<LogIn/>*/}
+
+
+       <LogIn/>
 
         <Routes>
 
             <Route path='/registration' element={ <Registration />} />
+            <Route path='/forget-password' element={ <ForgetPassword />} />
+
 
         </Routes>
 
