@@ -67,7 +67,7 @@ const Dashboard =() =>{
                         </table>
 
                         <div>
-                            <button className="btn btn-success btn-sm"><Link to="/view-history" >View history </Link></button>
+                            <button className="btn btn-success btn-sm"><Link to="/view-history" className="text-white" >View history </Link></button>
                         </div>
 
                         <Routes>
