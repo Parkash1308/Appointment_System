@@ -1,13 +1,96 @@
-import React from "react"
-
+import React, { useState } from 'react';
+import axios from 'axios';
 const  Registration = () =>{
+      const [first_name, setFirstName] = useState('');
+      const [last_name, setLastName] = useState('');
+      const [CMS_ID, setCmsId] = useState('');
+      const [email, setEmail] = useState('');
+      const [phone_number, setPhoneNumber] = useState('');
+      const [password, setPassword] = useState('');
+      const [confirmPassword, setConfirmPassword] = useState('');
+      const [gender, setGender] = useState('');
+      const [department, setDepartment] = useState('');
+      const [role, setRole] = useState('');
+
+      const handleSubmit = async (e)=>{
+        e.preventDefault();
+
+        if (
+              first_name.trim() === '' ||
+              last_name.trim() === '' ||
+              CMS_ID.trim() === '' ||
+              email.trim() === '' ||
+              phone_number.trim() === '' ||
+              password.trim() === '' ||
+              confirmPassword.trim() === '' ||
+              gender.trim() === '' ||
+              department.trim() === '' ||
+              role.trim() === ''
+            ) {
+              alert('Please fill in all the fields.');
+              return;
+            }
+
+            if (password !== confirmPassword) {
+              alert('Passwords do not match.');
+              return;
+            }
+
+            const formData = {
+                first_name,
+                last_name,
+                CMS_ID,
+                email,
+                phone_number,
+                password,
+                gender,
+                department,
+                role
+              };
+
+
+              try {
+                 // Make the API request
+                 const response = await  axios.post('http://localhost:8081/appointment/users', formData);
+                 console.log(JSON.stringify( response.data));
+                 console.log(JSON.stringify( e.target.elements.firstName.value));
+                 console.log(JSON.stringify( e.target.elements.lastName.value));
+                 console.log(JSON.stringify( e.target.elements.cmsId.value));
+                 console.log(JSON.stringify( e.target.elements.phoneNumber.value));
+
+
+
+                 if (response.status === 201) {
+                   // Reset the form fields after successful submission
+
+                   setFirstName('');
+                   setLastName('');
+                   setCmsId('');
+                   setEmail('');
+                   setPhoneNumber('');
+                   setPassword('');
+                   setConfirmPassword('');
+                   setGender('');
+                   setDepartment('');
+                   setRole('');
+
+                   alert('Form submitted successfully!');
+                 } else {
+                   // Handle API errors
+                   alert('Error submitting the form. Please try again.'+response.status);
+                 }
+               } catch (error) {
+                 // Handle network errors
+                 alert('An error occurred. Please check your internet connection and try again.');
+               }
+             };
+
+
+
 
 
     return(
-
         <>
-
-
             <section className="vh-100 gradient-custom">
                 <div className="container py-5 h-100">
                     <div className="row justify-content-center align-items-center h-100">
@@ -18,8 +101,9 @@ const  Registration = () =>{
                             >
                                 <div className="card-body p-4 p-md-5">
                                     <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
-                                    <form>
+                                    <form  onSubmit={handleSubmit}>
                                         <div className="row">
+
                                             <div className="col-md-6 mb-4">
                                                 <div className="form-outline">
 
@@ -29,12 +113,17 @@ const  Registration = () =>{
 
                                                     <input
                                                         type="text"
-                                                        id="firstName"
+                                                        id="fName"
+                                                        name="first_name"
                                                         className="form-control form-control-lg"
+                                                        value={first_name}
+                                                        onChange={(e) => setFirstName(e.target.value)}
+                                                        required
                                                     />
 
                                                 </div>
                                             </div>
+
                                             <div className="col-md-6 mb-4">
                                                 <div className="form-outline">
 
@@ -43,13 +132,19 @@ const  Registration = () =>{
                                                     </label>
                                                     <input
                                                         type="text"
-                                                        id="lastName"
+                                                        id="lName"
+                                                        name="last_name"
                                                         className="form-control form-control-lg"
+                                                        value={last_name}
+                                                        onChange={(e) => setLastName(e.target.value)}
+                                                        required
                                                     />
+
 
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div className="row">
                                             <div className="col-md-6 mb-4 d-flex align-items-center">
                                                 <div className="form-outline datepicker w-100">
@@ -59,9 +154,14 @@ const  Registration = () =>{
                                                     </label>
                                                     <input
                                                         type="text"
-                                                        className="form-control form-control-lg"
                                                         id="CMS-ID"
+                                                        name="CMS_ID"
+                                                        className="form-control form-control-lg"
+                                                        value={CMS_ID}
+                                                        onChange={(e) => setCmsId(e.target.value)}
+                                                        required
                                                     />
+
 
                                                 </div>
                                             </div>
@@ -86,7 +186,10 @@ const  Registration = () =>{
                                                         type="radio"
                                                         name="inlineRadioOptions"
                                                         id="maleGender"
-                                                        defaultValue="option2"
+                                                        defaultValue="option1"
+                                                        checked={gender === 'female'}
+                                                        onChange={(e)=>setGender('female')}
+                                                        required
                                                     />
                                                     <label className="form-check-label" htmlFor="maleGender">
                                                         Male
@@ -98,7 +201,10 @@ const  Registration = () =>{
                                                         type="radio"
                                                         name="inlineRadioOptions"
                                                         id="otherGender"
-                                                        defaultValue="option3"
+                                                        defaultValue="option2"
+                                                        checked={gender === 'male'}
+                                                        onChange={(e)=>setGender('male')}
+                                                        required
                                                     />
                                                     <label className="form-check-label" htmlFor="otherGender">
                                                         Other
@@ -118,6 +224,9 @@ const  Registration = () =>{
                                                         type="email"
                                                         id="emailAddress"
                                                         className="form-control form-control-lg"
+                                                        value={email}
+                                                        onChange={(e) => setEmail(e.target.value)}
+                                                        required
                                                     />
 
                                                 </div>
@@ -128,111 +237,94 @@ const  Registration = () =>{
                                                     <label className="form-label" htmlFor="phoneNumber">
                                                         Phone Number
                                                     </label>
-                                                    <input
-                                                        type="tel"
-                                                        id="phoneNumber"
-                                                        className="form-control form-control-lg"
-                                                    />
+                                                   <input
+                                                       type="tel"
+                                                       id="phoneNumber"
+                                                       name="phone_number"
+                                                       className="form-control form-control-lg"
+                                                       value={phone_number}
+                                                       onChange={(e) => setPhoneNumber(e.target.value)}
+                                                       required
+                                                   />
+
 
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div className="row">
                                             <div className="col-12">
-                                                <select className="select form-control-lg me-5">
 
-                                                    <label className="form-label select-label">
-                                                        Choose option
-                                                    </label>
-                                                    <br />
-                                                    <br />
-                                                    <option value={1} disabled="">
-                                                        Choose Dept
-                                                    </option>
-                                                    <option value={2}>Computer Science</option>
-                                                    <option value={3}>Software Engineering</option>
-                                                    <option value={5}>Computer Science Engineering</option>
-                                                    <option value={5}>Business Administration</option>
-                                                    <option value={6}>Education</option>
-                                                    <option value={7}>Physical</option>
-                                                    <option value={8}>Media and Science Communication</option>
-                                                    <option value={9}>Accounting and Finance</option>
+                                                <select className="select form-control-lg me-5"
+                                                    value={department}
+                                                    onChange={(e)=>setDepartment(e.target.value)}
+                                                >
+                                                    <option value="" disabled>Choose Dept</option>
+                                                      <option value="Computer Science">Computer Science</option>
+                                                      <option value="Software Engineering">Software Engineering</option>
+                                                      <option value="Computer Science Engineering">Computer Science Engineering</option>
+                                                      <option value="Business Administration">Business Administration</option>
+                                                      <option value="Education">Education</option>
+                                                      <option value="Physical">Physical</option>
+                                                      <option value="Media and Science Communication">Media and Science Communication</option>
+                                                      <option value="Accounting and Finance">Accounting and Finance</option>
 
                                                 </select>
 
 
-                                                <select className="select form-control-lg ">
-
-                                                    <label className="form-label select-label">
-                                                        Choose option
-                                                    </label>
-                                                    <br />
-                                                    <br />
-                                                    <option value={1} disabled="">
-                                                        Choose Role
-                                                    </option>
-                                                    <option value={2}>Student</option>
-                                                    <option value={3}>Teacher</option>
-
-
+                                                <select className="select form-control-lg "
+                                                     value={role}
+                                                     onChange={(e)=>setRole(e.target.value)}
+                                                >
+                                                    <option value="" disabled=""> Choose Role </option>
+                                                    <option value="Student">Student</option>
+                                                    <option value="Teacher">Teacher</option>
                                                 </select>
-
 
                                             </div>
                                         </div>
-
-
                                         <br />
 
                                         <div className="row">
+
                                             <div className="col-md-6 mb-4">
+
                                                 <div className="form-outline">
-
-                                                    <label className="form-label" htmlFor="firstName">
-                                                        Password
-                                                    </label>
-
+                                                    <label className="form-label" htmlFor="firstName"> Password </label>
                                                     <input
-                                                        type="password"
-                                                        id="firstName"
-                                                        className="form-control form-control-lg"
-                                                    />
+                                                    type="password"
+                                                    id="password"
+                                                    className="form-control form-control-lg"
+                                                    value={password}
+                                                    onChange={(e) =>setPassword(e.target.value)}
+                                                    required
 
+                                                    />
                                                 </div>
+
                                             </div>
+
                                             <div className="col-md-6 mb-4">
+
                                                 <div className="form-outline">
-
-                                                    <label className="form-label" htmlFor="lastName">
-                                                        Confirm Password
-                                                    </label>
+                                                    <label className="form-label" htmlFor="lastName"> Confirm Password </label>
                                                     <input
-                                                        type="password"
-                                                        id="lastName"
-                                                        className="form-control form-control-lg"
+                                                    type="password"
+                                                    id="confirmPassword"
+                                                    className="form-control form-control-lg"
+                                                    value={confirmPassword}
+                                                    onChange={(event) =>setConfirmPassword(event.target.value)}
+                                                    required
                                                     />
-
                                                 </div>
+
                                             </div>
                                         </div>
-
-
-
-
-
-
-
-
-
-
 
                                         <div className="mt-4 pt-2">
-                                            <input
-                                                className="btn btn-primary btn-lg"
-                                                type="submit"
-                                                defaultValue="Submit"
-                                            />
+                                            <input  className="btn btn-primary btn-lg" type="submit" defaultValue="Submit" />
                                         </div>
+
                                     </form>
                                 </div>
                             </div>
@@ -240,180 +332,6 @@ const  Registration = () =>{
                     </div>
                 </div>
             </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {/*<form>*/}
-            {/*    <div className="form-row">*/}
-            {/*        <div className="form-group col-md-6">*/}
-            {/*            <label htmlFor="inputEmail4">First Name</label>*/}
-            {/*            <input*/}
-            {/*                type="text"*/}
-            {/*                className="form-control"*/}
-            {/*                id="inputEmail4"*/}
-            {/*                placeholder="Write your First name here"*/}
-            {/*            />*/}
-            {/*        </div>*/}
-
-            {/*        <div className="form-group col-md-6">*/}
-            {/*            <label htmlFor="inputEmail4">Last Name</label>*/}
-            {/*            <input*/}
-            {/*                type="text"*/}
-            {/*                className="form-control"*/}
-            {/*                id="inputEmail4"*/}
-            {/*                placeholder="Write your Last name here"*/}
-            {/*            />*/}
-            {/*        </div>*/}
-
-
-            {/*        <div className="form-group col-md-6">*/}
-            {/*            <label htmlFor="inputEmail4">CMS-ID</label>*/}
-            {/*            <input*/}
-            {/*                type="text"*/}
-            {/*                className="form-control"*/}
-            {/*                id="inputEmail4"*/}
-            {/*                placeholder="Enter CMS-ID"*/}
-            {/*            />*/}
-            {/*        </div>*/}
-
-            {/*        <div className="form-group col-md-6">*/}
-            {/*            <label htmlFor="inputEmail4">Email</label>*/}
-            {/*            <input*/}
-            {/*                type="email"*/}
-            {/*                className="form-control"*/}
-            {/*                id="inputEmail4"*/}
-            {/*                placeholder="Enter Email"*/}
-            {/*            />*/}
-            {/*        </div>*/}
-
-
-            {/*        <div className="form-group col-md-4 py-2">*/}
-            {/*            <label htmlFor="inputState">Department</label>*/}
-            {/*            <select id="inputState" className="form-control">*/}
-            {/*                <option selected="">Select your department</option>*/}
-            {/*                <option>Computer Science</option>*/}
-            {/*                <option>Software Engineering</option>*/}
-            {/*                <option>Computer System Engineering</option>*/}
-            {/*                <option>Business Administration</option>*/}
-            {/*                <option>Education</option>*/}
-            {/*                <option>Physical</option>*/}
-            {/*                <option>Media and Science Communication</option>*/}
-            {/*                <option>Accounting and Finance</option>*/}
-
-            {/*            </select>*/}
-            {/*        </div>*/}
-
-
-
-
-
-
-
-
-
-
-
-            {/*    </div>*/}
-
-            {/*    <div className="form-row">*/}
-
-            {/*        /!*<div className="form-group col-md-4 py-2">*!/*/}
-            {/*        /!*    <label htmlFor="inputState">Select Semester</label>*!/*/}
-            {/*        /!*    <select id="inputState" className="form-control">*!/*/}
-            {/*        /!*        <option selected="">Select Semester</option>*!/*/}
-            {/*        /!*        <option>1st</option>*!/*/}
-            {/*        /!*        <option>2nd</option>*!/*/}
-            {/*        /!*        <option>3rd</option>*!/*/}
-            {/*        /!*        <option>4th</option>*!/*/}
-            {/*        /!*        <option>5th</option>*!/*/}
-            {/*        /!*        <option>6th</option>*!/*/}
-            {/*        /!*        <option>7th</option>*!/*/}
-            {/*        /!*        <option>8th</option>*!/*/}
-
-            {/*        /!*    </select>*!/*/}
-            {/*        /!*</div>*!/*/}
-
-
-            {/*        /!*<div className="form-group col-md-4 py-1">*!/*/}
-            {/*        /!*    <label htmlFor="inputState">Teacher</label>*!/*/}
-            {/*        /!*    <select id="inputState" className="form-control">*!/*/}
-            {/*        /!*        <option selected="">Select Teacher</option>*!/*/}
-            {/*        /!*        <option>Dr. Farzeel Anwar</option>*!/*/}
-            {/*        /!*        <option>Dr. Saif Hassan</option>*!/*/}
-            {/*        /!*        <option>Mr. Khalid Detho</option>*!/*/}
-            {/*        /!*        <option>Engr. Fayyazuddin</option>*!/*/}
-            {/*        /!*        <option>Dr. Muhammad Hussain Mughal</option>*!/*/}
-            {/*        /!*        <option>Mr. Sohail Khan</option>*!/*/}
-            {/*        /!*    </select>*!/*/}
-            {/*        /!*</div>*!/*/}
-
-
-            {/*        /!*<div className="form-group col-md-4 py-2">*!/*/}
-            {/*        /!*    <label htmlFor="inputState">Is your class teacher?</label>*!/*/}
-            {/*        /!*    <select id="inputState" className="form-control">*!/*/}
-            {/*        /!*        <option selected="">Yes or No</option>*!/*/}
-            {/*        /!*        <option>Yes</option>*!/*/}
-            {/*        /!*        <option>No</option>*!/*/}
-
-
-            {/*        /!*    </select>*!/*/}
-
-            {/*        /!*</div>*!/*/}
-
-
-            {/*    </div>*/}
-
-
-            {/*</form>*/}
-
-            {/*<div>*/}
-
-            {/*    <form>*/}
-            {/*        <fieldset disabled="">*/}
-            {/*            /!*<div className="form-group py-2">*!/*/}
-            {/*            /!*    <label htmlFor="disabledTextInput">Query</label>*!/*/}
-            {/*            /!*    <input*!/*/}
-            {/*            /!*        type="text"*!/*/}
-            {/*            /!*        id="disabledTextInput"*!/*/}
-            {/*            /!*        className="form-control"*!/*/}
-            {/*            /!*        placeholder="Write your Query here"*!/*/}
-            {/*            /!*    />*!/*/}
-            {/*            /!*</div>*!/*/}
-
-            {/*            /!*<div className="form-group col-md-4">*!/*/}
-            {/*            /!*    <label htmlFor="inputState">Select date</label>*!/*/}
-            {/*            /!*    <DatePicker*!/*/}
-            {/*            /!*        showIcon*!/*/}
-            {/*            /!*        selected={startDate}*!/*/}
-            {/*            /!*        onChange={(date) => setStartDate(date)}*!/*/}
-            {/*            /!*    />*!/*/}
-
-            {/*            /!*</div>*!/*/}
-
-
-
-            {/*            <button type="submit" className="btn btn-primary btn-sm">*/}
-            {/*                Save*/}
-            {/*            </button>*/}
-            {/*        </fieldset>*/}
-            {/*    </form>*/}
-
-
-            {/*</div>*/}
-
-
-
         </>
 
     );
