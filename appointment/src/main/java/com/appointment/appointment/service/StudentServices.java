@@ -17,6 +17,7 @@ public class StudentServices {
         return studentRepository.findAll();
     }
     public Student addStudent(Student student) {
+        System.out.println("student service");
         return studentRepository.save(student);
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TeacherServices {
@@ -20,4 +21,8 @@ public class TeacherServices {
     public Teacher addTeacher(Teacher teacher){
         return teacherRepository.save(teacher);
     }
+    public Optional<Teacher> getTeacherById(Long id ){
+        return teacherRepository.findById(id);
+    }
+
 }

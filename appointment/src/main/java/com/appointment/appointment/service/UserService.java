@@ -6,13 +6,14 @@ import com.appointment.appointment.model.Users;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class UsersServices {
+public class UserService {
 
     private final UsersRepository usersRepository;
 
-    public UsersServices(UsersRepository usersRepository) {
+    public UserService(UsersRepository usersRepository) {
         this.usersRepository = usersRepository;
     }
 
@@ -20,7 +21,10 @@ public class UsersServices {
         return usersRepository.findAll();
     }
 
-    public Users addUsers(Users users){
-        return usersRepository.save(users);
+    public Users addUser(Users user){
+        return usersRepository.save(user);
     }
-        }
+    public Optional<Users> getUserByCMS_ID(String cmsId) {
+        return usersRepository.findByCmsId(cmsId);
+    }
+}

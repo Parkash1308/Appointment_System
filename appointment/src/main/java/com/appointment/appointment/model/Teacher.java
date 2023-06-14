@@ -16,14 +16,17 @@ public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
-    private String email;
-    private String password;
-    private String department;
 
-   @OneToMany(mappedBy ="teacher" ,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy ="teacher" ,cascade = CascadeType.ALL)
     private List<Appointment> appointments;
-   @OneToMany(mappedBy ="teachers",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy ="teachers",cascade = CascadeType.ALL)
     private List<Student> students;
 
+    @OneToOne(
+            cascade = {CascadeType.ALL}
+    )
+    @JoinColumn(
+            name = "userId", referencedColumnName="user_id"
+    )
+    private Users teacher_user;
 }
