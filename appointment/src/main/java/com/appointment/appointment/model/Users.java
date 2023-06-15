@@ -17,8 +17,8 @@ public class Users {
     @GeneratedValue(
             strategy = GenerationType.AUTO
     )
-    @Column(name = "user_id")
-    private Long user_id;
+    @Column(name = "userId")
+    private Long userId;
     private String first_name;
     private String last_name;
     private String cmsId;
@@ -31,10 +31,10 @@ public class Users {
     @Transient
     private String teacher_cms;
 
-    @OneToOne(mappedBy = "student_user",fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "users",fetch = FetchType.LAZY)
     private Student student;
 
 
-    @OneToOne(mappedBy ="teacher_user")
+    @OneToOne(mappedBy ="users")
     private Teacher teacher;
 }

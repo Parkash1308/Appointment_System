@@ -8,19 +8,13 @@ import com.appointment.appointment.service.TeacherServices;
 import com.appointment.appointment.service.UserService;
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(
-        origins = {"http://localhost:3000"}
-)
 @RequestMapping({"/appointment/users"})
 public class UserController {
     private final UserService usersService;
@@ -32,10 +26,6 @@ public class UserController {
         this.studentService = studentService;
         this.teacherService = teacherService;
     }
-
-
-
-
     @GetMapping
     public List<Users> findAllUsers() {
         return this.usersService.getUsers();
@@ -44,21 +34,18 @@ public class UserController {
     @PostMapping
     public ResponseEntity<Users> saveUsers(@RequestBody Users users) {
         Users savedUser = this.usersService.addUser(users);
-        System.out.println("savedUserId"+users.getUser_id());
+        System.out.println("savedUserId"+users.getUserId());
 
         if (users.getRole().equals("Student")) {
             System.out.println("teacher_cms:  "+users.getTeacher_cms());
-//            Long userId = usersService.getUserByCMS_ID(users.getTeacher_cms())
-//                    .orElseThrow(() -> new IllegalArgumentException("Invalid CMS ID"))
-//                    .getUser_id();
             Long userId = usersService.getUserByCMS_ID(users.getTeacher_cms())
-                    .map(Users::getUser_id)
+                    .map(Users::getUserId)
                     .orElseThrow(() -> new IllegalArgumentException("Invalid CMS ID"));
 
             System.out.println("UserID"+userId);
 
             Student student = new Student();
-            student.setStudent_user(savedUser); // Set the associated user in the Student entity
+            student.setUsers(savedUser); // Set the associated user in the Student entity
 
             student.setTeachers(teacherService.getTeacherById(userId)
                     .orElseThrow(() -> new IllegalArgumentException("Invalid Teacher ID")));
@@ -67,10 +54,17 @@ public class UserController {
             System.out.println("student inserted");
         } else if (users.getRole().equals("Teacher")) {
             Teacher teacher = new Teacher();
-            teacher.setTeacher_user(savedUser); // Set the associated user in the Teacher entity
+            teacher.setUsers(savedUser); // Set the associated user in the Teacher entity
             teacherService.addTeacher(teacher);
         }
 
-        return ResponseEntity.created(URI.create("/appointment/users" + savedUser.getUser_id())).body(savedUser);
+        return ResponseEntity.created(URI.create("/appointment/users" + savedUser.getUserId())).body(savedUser);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Users> findUserByCMS_ID(@PathVariable String id ) throws Exception {
+        Optional<Users> user = usersService.getUserByCMS_ID(id);
+        return user.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
+
 }

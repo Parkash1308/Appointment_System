@@ -22,11 +22,9 @@ public class Teacher {
     @OneToMany(mappedBy ="teachers",cascade = CascadeType.ALL)
     private List<Student> students;
 
-    @OneToOne(
-            cascade = {CascadeType.ALL}
-    )
-    @JoinColumn(
-            name = "userId", referencedColumnName="user_id"
-    )
-    private Users teacher_user;
+
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "userId", referencedColumnName = "userId")
+    private Users users;
+
 }

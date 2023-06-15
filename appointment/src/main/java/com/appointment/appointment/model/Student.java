@@ -27,8 +27,8 @@ public class Student {
     private Teacher teachers;
 
     @OneToOne(  cascade = {CascadeType.ALL}   )
-    @JoinColumn(   name = "user_id",referencedColumnName="user_id" )
-    private Users student_user;
+    @JoinColumn(   name = "userId",referencedColumnName="userId" )
+    private Users users;
 
 //    @Column(name = "teacher_id", insertable = true)
 //    private Long teacher_id;

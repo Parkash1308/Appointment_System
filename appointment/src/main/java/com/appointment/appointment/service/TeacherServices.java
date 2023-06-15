@@ -22,7 +22,7 @@ public class TeacherServices {
         return teacherRepository.save(teacher);
     }
     public Optional<Teacher> getTeacherById(Long id ){
-        return teacherRepository.findById(id);
+        return teacherRepository.findByUsersUserId(id);
     }
 
 }
